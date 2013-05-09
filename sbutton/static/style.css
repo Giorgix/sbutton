@@ -1,0 +1,5 @@
+.page    { margin: 2em auto; width: auto; border: 5px solid #000;
+	   padding: 0.8em; background: grey; display: inline-block; }
+
+
+.page img   { width: 60%; height:auto; }
