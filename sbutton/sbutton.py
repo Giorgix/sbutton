@@ -11,7 +11,7 @@ def show_image():
     image_num = int(flask.request.args.get('image_num', 0))
     image_num += 1
 
-    url = get_image('eagles', image_num)
+    url = get_image('memes + humor', 'memesymamas.com', image_num)
     return flask.render_template(
         'show_images.html',
         img_href=url,
@@ -19,12 +19,17 @@ def show_image():
     )
 
 
-def get_image(search_term, image_num=0):
+def get_image(search_term, site, image_num=0):
+
+# search_term is the same as a standar search in google, with all the commands
+# as_sitesearch restricts the search within the given domain,
+# the atribute None disable the restriction
 
     params = {
         'v': 1.0,
         'q': search_term,
-        'start': image_num
+        'start': image_num,
+        'as_sitesearch': site
     }
     headers = {
         'Referer': 'testing'
@@ -40,4 +45,4 @@ def get_image(search_term, image_num=0):
         return image_urls[0]
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='192.168.1.13')

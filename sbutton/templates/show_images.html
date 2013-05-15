@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
 {% block body %}
-  <img src="{{ img_href }}">
+<a href="{{ img_href }}"><img src="{{ img_href }}"> </a>
   <a href="{{ url_for('show_image', image_num=image_num)  }}"> next </a>
 {% endblock %}
